@@ -26,13 +26,14 @@ while (true)
                 },
                 RegNumber = new Random().Next(1000, 9999).ToString()
             };
-            parkingRepository.Park(car);
+            Console.WriteLine(parkingRepository.Park(car));
         }
         else if (selection == 2)
         {
             Console.WriteLine("Enter parking id:");
             var parkingId = Convert.ToInt16(Console.ReadLine());
             parkingRepository.UnPark(parkingId);
+            Console.WriteLine("Car removed from parking");
         }
     }
     catch(ParkingInUseException ex)

@@ -7,7 +7,7 @@ namespace ParkingApp.Business.Repositories
 {
     public class ParkingRepository : IParkingRepository
     {
-        public void Park(Car car)
+        public string Park(Car car)
         {
             if (ParkingStatus.IsBusy)
                 throw new ParkingInUseException();
@@ -18,6 +18,7 @@ namespace ParkingApp.Business.Repositories
                 {
                     var parkingSpot = ParkingFactory.GetAvailableParkingSpot(car);
                     UpdateParkingSlot(parkingSpot.ParkingId, true);
+                    return "Parked at: " + parkingSpot.ParkingId;
                 }
                 catch
                 {

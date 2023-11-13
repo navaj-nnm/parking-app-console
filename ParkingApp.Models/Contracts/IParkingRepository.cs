@@ -8,7 +8,7 @@ namespace ParkingApp.Models.Contracts
 {
     public interface IParkingRepository
     {
-        void Park(Car car);
+        string Park(Car car);
         void UnPark(int id);
         string GetAvailableSlots();
     }
