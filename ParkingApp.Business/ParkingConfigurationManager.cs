@@ -40,5 +40,13 @@ namespace ParkingApp.Business
             ParkingSpots = ConfigureParkingSpots.GetAllParkingSlots(parkingConfig);
         }
 
+        public void ResetParkings()
+        {
+            for (int i = 0; i < Instance.ParkingSpots.Length; i++)
+            {
+                Instance.ParkingSpots[i].IsOccupied = false;
+            }
+        }
+
     }
 }
